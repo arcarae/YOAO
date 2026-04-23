@@ -1,0 +1,34 @@
+# vLLM Base Model vs LoRA Adapter Comparison
+# Team A: Qwen3-14B base (untrained)
+# Team B: Qwen3-14B with v2 LoRA adapter (trained)
+experiment_name: "vllm_base_vs_lora"
+output_dir: "results"
+num_games: 1
+
+default_provider:
+  type: vllm
+  base_url: http://localhost:8000/v1
+  temperature: 0.7
+
+game:
+  num_rounds: 10
+  team_size: 5
+  multipliers:
+    5: 2
+    10: 3
+
+team_a:
+  size: 5
+  provider:
+    type: vllm
+    model: /workspace/models/Qwen3-14B  # Base model (untrained)
+    base_url: http://localhost:8000/v1
+    temperature: 0.7
+
+team_b:
+  size: 5
+  provider:
+    type: vllm
+    model: qwen3-14b-v2  # LoRA adapter (trained)
+    base_url: http://localhost:8000/v1
+    temperature: 0.7

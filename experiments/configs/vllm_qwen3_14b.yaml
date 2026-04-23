@@ -1,0 +1,24 @@
+# vLLM Qwen3-14B Base Model Configuration
+# Uses local vLLM server for high-throughput inference
+experiment_name: "vllm_qwen3_14b_test"
+output_dir: "results"
+num_games: 1
+
+default_provider:
+  type: vllm
+  model: /workspace/models/Qwen3-14B
+  base_url: http://localhost:8000/v1
+  temperature: 0.7
+
+game:
+  num_rounds: 10
+  team_size: 5
+  multipliers:
+    5: 2
+    10: 3
+
+team_a:
+  size: 5
+
+team_b:
+  size: 5

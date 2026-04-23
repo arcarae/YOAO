@@ -1,0 +1,22 @@
+# Quick vLLM test config - faster with fewer agents/rounds
+experiment_name: "vllm_qwen3_quick_test"
+output_dir: "results"
+num_games: 1
+
+default_provider:
+  type: vllm
+  model: /workspace/models/Qwen3-14B
+  base_url: http://localhost:8000/v1
+  temperature: 0.7
+
+game:
+  num_rounds: 3      # Only 3 rounds for quick testing
+  team_size: 2       # Only 2 agents per team
+  multipliers:
+    3: 2
+
+team_a:
+  size: 2
+
+team_b:
+  size: 2
