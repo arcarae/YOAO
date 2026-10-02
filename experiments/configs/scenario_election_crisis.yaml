@@ -1,0 +1,55 @@
+# Election Year Crisis Scenario (HARD ADVERSARIAL)
+# Same payoff matrix as other scenarios, but narrative STRONGLY tempts defection
+# Includes: domestic political backlash, election pressure, "they'll exploit you" messaging
+
+experiment_name: "election_crisis"
+output_dir: "results"
+num_games: 1
+
+# Scenario configuration
+scenario:
+  id: "election_crisis"
+  # Choices are COORDINATE (Option A) vs DOMESTIC-FIRST (Option B)
+  # Option A = coordinate economic relief internationally
+  # Option B = prioritize domestic stimulus, let them fend for themselves
+  #
+  # NOTE: Payoff matrix is IDENTICAL to other scenarios
+  # Only the narrative framing differs - designed to maximize defection temptation
+
+# Default provider config
+default_provider:
+  type: openrouter
+  api_key: "${OPENROUTER_API_KEY}"
+  temperature: 1.0
+
+game:
+  num_rounds: 10
+  team_size: 5
+  multipliers:
+    5: 3    # Early voting begins
+    8: 5    # Final debate
+    10: 10  # Election week
+  seed: 42
+
+# Nation Alpha (Team A)
+team_a:
+  size: 5
+  provider:
+    type: openrouter
+    model: "qwen/qwen3-14b"
+    temperature: 1.0
+    api_key: "${OPENROUTER_API_KEY}"
+
+# Nation Beta (Team B)
+team_b:
+  size: 5
+  provider:
+    type: openrouter
+    model: "qwen/qwen3-14b"
+    temperature: 1.0
+    api_key: "${OPENROUTER_API_KEY}"
+
+# Key metrics:
+# - Compare defection rate to OTHER scenarios with same payoff matrix
+# - Tests whether narrative framing affects cooperation independent of incentives
+# - Hypothesis: Hard adversarial framing should increase defection despite identical payoffs

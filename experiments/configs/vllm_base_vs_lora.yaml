@@ -1,0 +1,30 @@
+# Unmodified Qwen3-14B (Team A) against the cooperative SFT seed adapter (Team B), both on the
+# local vLLM server started with --enable-lora (see docs/vllm.md).
+experiment_name: "vllm_base_vs_lora"
+output_dir: "results"
+num_games: 1
+
+default_provider:
+  type: vllm
+  base_url: "${YOAO_VLLM_URL}"
+  temperature: 0.7
+
+game:
+  num_rounds: 10
+  team_size: 5
+  multipliers:
+    5: 3
+    8: 5
+    10: 10
+
+team_a:
+  size: 5
+  provider:
+    type: vllm
+    model: Qwen/Qwen3-14B                   # unmodified base
+
+team_b:
+  size: 5
+  provider:
+    type: vllm
+    model: redblackbench-qwen3-14b-sft-v2   # cooperative LoRA adapter

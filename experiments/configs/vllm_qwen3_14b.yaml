@@ -1,0 +1,25 @@
+# Full game with the paper's settings, both teams unmodified Qwen3-14B through the local vLLM server.
+# (The paper's main experiments use a scripted always-defect Team B instead; see scripts/eval_scale_effect.py.)
+experiment_name: "vllm_qwen3_14b_selfplay"
+output_dir: "results"
+num_games: 1
+
+default_provider:
+  type: vllm
+  model: Qwen/Qwen3-14B
+  base_url: "${YOAO_VLLM_URL}"
+  temperature: 0.7
+
+game:
+  num_rounds: 10
+  team_size: 5
+  multipliers:
+    5: 3
+    8: 5
+    10: 10
+
+team_a:
+  size: 5
+
+team_b:
+  size: 5
