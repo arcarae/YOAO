@@ -1,0 +1,12 @@
+# LoRA SFT of Qwen3-14B (training/train.py). CUDA GPU with >= 80 GB is recommended.
+torch>=2.1.0
+transformers>=4.51.0
+peft>=0.10.0
+accelerate>=0.25.0
+datasets>=2.14.0
+huggingface_hub>=0.23.0
+scipy
+numpy
+tqdm
+wandb
+python-dotenv

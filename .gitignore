@@ -1,0 +1,169 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Results and logs
+results/**
+!results/.gitkeep
+*.log
+local.env
+animation/web/recording.json
+
+# Evaluation results - exclude large trajectory files but keep summaries
+eval_results/**/trajectories/**/*.json
+eval_results/**/*_game_*.json
+# But keep summary JSONs
+!eval_results/**/*summary*.json
+!eval_results/**/*results*.json
+!eval_results/**/*metrics*.json
+
+# API keys and secrets
+.env
+.env.local
+*.key
+secrets.yaml
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+training_data/sft_final_all.json
+
+# Runtime artifacts (kept locally)
+logs/
+scripts/.claude/
+
+# Stale status notes (kept locally, not for repo)
+EXPERIMENT_STATUS.md
+TABLE3_COMPREHENSIVE_RESULTS.md
+experiment.md
+changelog
+
+# Local-only docs and result writeups
+docs/sugarscape/
+redblackbench/sugarscape/formal_result/
+
+# One-off sugarscape experiment runners (kept locally)
+scripts/run_100pct_exploiter_standard.py
+scripts/run_100pct_normie_experiment.py
+scripts/run_20pct_altruist_80pct_normie_experiment.py
+scripts/run_broker_experiment.py
+scripts/run_broker_experiment_scaled.py
+scripts/run_mixed_altruist_exploiter_boosted_env.py
+scripts/run_mixed_altruist_exploiter_standard.py
+scripts/run_mixed_model_experiment.py
+scripts/run_trained_exploiter_experiment.py
+scripts/run_trained_normie_experiment.py
+scripts/run_untrained_normie_experiment.py
+scripts/run_normie_ablation_smalltalk_only.py
+scripts/run_normie_ablation_trade_only.py
+scripts/run_normie_triplet_3runs.py
+scripts/resume_trained_normie_v4.py
+
+# One-off analysis & plotting tools (kept locally)
+scripts/analyze_agent_types.py
+scripts/analyze_altruist_normie_persuasion.py
+scripts/analyze_normie_beliefs.py
+scripts/analyze_normie_v2_encounter_moral_trajectories.py
+scripts/analyze_normie_v2_moral_vs_welfare.py
+scripts/analyze_normie_v2_partner_influence.py
+scripts/analyze_persuasion.py
+scripts/calculate_trade_welfare_metrics.py
+scripts/extract_agent_case_and_plot.py
+scripts/plot_current_experiments.py
+scripts/plot_normie_triplet_moral_effects.py
+scripts/plot_normie_triplet_self_scores.py
+scripts/plot_three_experiments_encounter_moral_change.py
+scripts/plot_tick0_vs_tick1_moral.py
+scripts/plot_trade_rate_and_post_trade_welfare.py
+scripts/plot_triplet_mechanism_effect_vs_prompt_variant.py
+scripts/plot_triplet_reflection_only_t0_t1.py
+scripts/plot_triplet_rescore_comparison.py
+scripts/rescore_chat_only_without_transcript_gpt4o.py
+scripts/rescore_reflection_only_gpt4o.py
+
+# Training data - large generated artifacts (data backed up elsewhere)
+training_data/batch_10k/results/
+training_data/streaming_batch_2/results/
+training_data/streaming_batch_3/results/
+training_data/streaming/results/
+training_data/sft_combined_batches_2_3_filtered.json
+training_data/streaming/sft_combined.json
+training_data/streaming/sft_combined_batch_and_stream_1.json
+training_data/streaming/sft_combined_batch_and_stream_1_filtered.json
+training_data/streaming_batch_2/sft_combined.json
+training_data/batch_10k_batch_2/sft_combined.json

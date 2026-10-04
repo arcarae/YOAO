@@ -1,0 +1,32 @@
+# Example RedBlackBench Experiment Configuration
+# This configuration runs a standard Red-Black game with GPT-4 agents
+
+experiment_name: "gpt4_baseline"
+output_dir: "results"
+num_games: 3
+
+# Default LLM provider for all agents
+default_provider:
+  type: openai
+  model: gpt-4
+  temperature: 0.7
+
+# Game configuration
+game:
+  num_rounds: 10
+  team_size: 5
+  multipliers:
+    5: 3   # Round 5 has 3x multiplier
+    8: 5   # Round 8 has 5x multiplier
+    10: 10 # Round 10 has 10x multiplier
+
+# Team A configuration (uses default provider if not specified)
+team_a:
+  size: 5
+  # provider: (uses default_provider)
+
+# Team B configuration (uses default provider if not specified)  
+team_b:
+  size: 5
+  # provider: (uses default_provider)
+

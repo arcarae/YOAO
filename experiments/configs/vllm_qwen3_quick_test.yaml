@@ -1,0 +1,23 @@
+# Quick smoke test through the local vLLM server: 2 agents per team, 3 rounds.
+# Start the server first (see docs/vllm.md); the model name must match --served-model-name.
+experiment_name: "vllm_qwen3_quick_test"
+output_dir: "results"
+num_games: 1
+
+default_provider:
+  type: vllm
+  model: Qwen/Qwen3-14B
+  base_url: "${YOAO_VLLM_URL}"   # falls back to http://localhost:8000/v1 when unset
+  temperature: 0.7
+
+game:
+  num_rounds: 3      # Only 3 rounds for quick testing
+  team_size: 2       # Only 2 agents per team
+  multipliers:
+    3: 2
+
+team_a:
+  size: 2
+
+team_b:
+  size: 2

@@ -1,0 +1,102 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yoao"
+version = "0.2.0"
+description = "YOAO: You Only Align Once — propagating cooperative behaviors in multi-agent systems through seed agents (EMNLP 2026, arXiv:2605.27586). Red-Black Game and Sugarscape suites."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "YOAO authors"}
+]
+keywords = [
+    "benchmark",
+    "game-theory",
+    "multi-agent",
+    "llm",
+    "sugarscape",
+    "alignment",
+    "ai-safety",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0.0"]
+anthropic = ["anthropic>=0.18.0"]
+redblackbench = [
+    "openai>=1.0.0",
+    "anthropic>=0.18.0",
+]
+sugarscape = [
+    "openai>=1.0.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "tqdm>=4.65.0",
+    "huggingface_hub>=0.20.0",
+]
+all = [
+    "openai>=1.0.0",
+    "anthropic>=0.18.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "tqdm>=4.65.0",
+    "huggingface_hub>=0.20.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+redblackbench = "redblackbench.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/arcarae/YOAO"
+Repository = "https://github.com/arcarae/YOAO"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["redblackbench*", "sugarscape*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
